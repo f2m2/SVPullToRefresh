@@ -23,7 +23,7 @@
 
 
 enum {
-	SVInfiniteScrollingStateStopped = 0,
+    SVInfiniteScrollingStateStopped = 0,
     SVInfiniteScrollingStateTriggered,
     SVInfiniteScrollingStateLoading,
     SVInfiniteScrollingStateAll = 10
@@ -41,5 +41,10 @@ typedef NSUInteger SVInfiniteScrollingState;
 
 - (void)startAnimating;
 - (void)stopAnimating;
+
+/**
+ * This animates the wheel without setting the SVnfiniteScrollingState. "startAnimating" changes SVInfiniteScrollingState to loading, which ironically prevents loading from happening in scrollViewDidScroll.
+ */
+- (void)animateWithoutSettingState;
 
 @end
